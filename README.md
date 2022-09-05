@@ -20,6 +20,12 @@ A social networking api designed for a social networking application where Users
 ## Usage
 💻 From the root folder in the command line run `npm run start` to start the server. When running locally you can test the endpoints in Insomnia by accessing the api routes and performing CRUD Operations.
 
+## License
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Contribution
+Made with ♥ by Michael Schneider
+
 ## Contact
 - [Github Account](https://github.com/MichaelS32)
 - [Email](mailto:michaelschneider3232@gmail.com)
