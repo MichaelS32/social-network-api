@@ -1,4 +1,4 @@
-// Requiring Express and Mongoose
+// Require Express and Mongoose
 const express = require('express');
 const mongoose = require('mongoose');
 
@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
 
-// 
+// require routes folder
 app.use(require('./routes'));
 
 // Connect mongoose to server
