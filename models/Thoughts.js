@@ -1,25 +1,26 @@
 const { Schema, model, Types } = require('mongoose');
-const moment = require('moment');
+const dateFormat = require("../utils/dateFormat");
 
+// Use mongoose Schema function to create Reactions
 const ReactionsSchema = new Schema(
     {
         reactionId: {
-            type: Schema.Tpes.ObjectId,
+            type: Schema.Types.ObjectId,
             default: () => new Types.ObjectId()
         },
         reactionBody: {
             type: String,
-            require: true,
-            maclength: 280
+            required: true,
+            maxlength: 280
         },
         username: {
             type: String,
-            requred: true
+            required: true
         },
         createAt: {
             type: Date,
-            defaulte: Date.now,
-            get: (createdAtVal) => moment(createAtVal).format('MMM DD, YYYY [at] hh:mm a')
+            default: Date.now,
+            get: (timestamp) => dateFormat(timestamp)
         }
     },
     {
@@ -29,24 +30,26 @@ const ReactionsSchema = new Schema(
     }
 );
 
+// Use mongoose Schema function to create Thoughts
 const ThoughtsSchema = new Schema(
     {
         thoughtText: {
             type: String,
-            requrie: true,
+            require: true,
             minlength: 1,
             maxlength: 280
         },
         createAt: {
             type: Date,
             default: Date.now,
-            get: (createAtVal) => moment(createAtVal).format('MMM DD, YYYY [at[ hh:mm a')
+            get: (timestamp) => dateFormat(timestamp)
         },
         username: {
             type: String,
             requried: true
         },
-
+        // makes an array of nested docutment for the reactionsSchema
+        reactions: [ReactionsSchema],
     },
     {
         toJSON: {
